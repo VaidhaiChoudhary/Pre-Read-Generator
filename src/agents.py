@@ -19,9 +19,15 @@ import shutil
 import pypandoc
 # pypandoc.download_pandoc()
 
-# Only download pandoc if it's not already installed
+# # Only download pandoc if it's not already installed
+# if not shutil.which("pandoc"):
+#     pypandoc.download_pandoc()
+
+# Force-set pandoc download location inside the project
+pandoc_dir = os.path.join(os.getcwd(), "pandoc-bin")
 if not shutil.which("pandoc"):
-    pypandoc.download_pandoc()
+    pypandoc.download_pandoc(targetfolder=pandoc_dir)
+    os.environ["PATH"] = pandoc_dir + os.pathsep + os.environ["PATH"]
     
 #from utils import replace_image_placeholders
 from src.utils import replace_image_placeholders

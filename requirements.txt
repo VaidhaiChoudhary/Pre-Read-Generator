@@ -9,7 +9,7 @@ streamlit
 langchain-groq
 langchain-openai
 pypandoc
-pandoc
+#pandoc
 serpapi
 google-search-results
 beautifulsoup4
