@@ -169,3 +169,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+###
+src/utils/arxiv_diagram.py
+src/Accredian_Logo.png
+src/EICT_Academy_IITG_Logo.png
+src/logo.jpg

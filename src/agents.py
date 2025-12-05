@@ -175,7 +175,8 @@ api_key_3 = st.sidebar.text_input("OpenAI API Key 3", type="password")
 # Model Selection
 model_option = st.sidebar.selectbox(
     "Select Model",
-    ("ChatGroq LLaMA-70B", "OpenAI GPT-4o","gpt-4o-mini-2024-07-18", "gpt-4", "gpt-3.5-turbo")
+    #("ChatGroq LLaMA-70B", "OpenAI GPT-4o","gpt-4o-mini-2024-07-18", "gpt-4", "gpt-3.5-turbo")
+    ("Llama 3.3 70B", "OpenAI GPT-4o","gpt-4o-mini-2024-07-18", "gpt-4", "gpt-3.5-turbo")
 )
 
 # Main screen input field for topic and curriculum
@@ -200,8 +201,10 @@ if st.button("Submit"):
             tavily_client = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
             tavily_async_client = AsyncTavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
 
-            if model_option == "ChatGroq LLaMA-70B":
-                llm = ChatGroq(model="deepseek-r1-distill-llama-70b", verbose=False)
+            # if model_option == "ChatGroq LLaMA-70B":
+            #     llm = ChatGroq(model="deepseek-r1-distill-llama-70b", verbose=False)
+            if model_option == "Llama 3.3 70B":
+                llm = ChatGroq(model="llama-3.3-70b-versatile", verbose=False)
             else:
                 llm = ChatOpenAI(
                     model="gpt-4o",

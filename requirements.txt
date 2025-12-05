@@ -10,7 +10,7 @@ langchain-groq
 langchain-openai
 pypandoc
 #pandoc
-serpapi
+#serpapi
 google-search-results
 beautifulsoup4
 requests
