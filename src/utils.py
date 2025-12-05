@@ -157,14 +157,17 @@ import requests
 try:
     from serpapi import GoogleSearch
 except ImportError:
-    import sys
-    import subprocess
-    # Attempt to fix the dependency conflict
-    subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "-y", "serpapi"])
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "google-search-results"])
-    if 'serpapi' in sys.modules:
-        del sys.modules['serpapi']
-    from serpapi import GoogleSearch
+    import streamlit as st
+    st.error("🚨 Configuration Error: The wrong 'serpapi' package is installed in the environment. Please go to 'Manage App' -> 'Reboot App' or 'Clear Cache' to fix this.")
+    st.stop()
+    # import sys
+    # import subprocess
+    # # Attempt to fix the dependency conflict
+    # subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "-y", "serpapi"])
+    # subprocess.check_call([sys.executable, "-m", "pip", "install", "google-search-results"])
+    # if 'serpapi' in sys.modules:
+    #     del sys.modules['serpapi']
+    # from serpapi import GoogleSearch
 from dotenv import load_dotenv
 
 # load_dotenv()
