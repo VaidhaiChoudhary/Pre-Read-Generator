@@ -154,7 +154,17 @@ async def tavily_search_async(search_queries, tavily_topic, tavily_days):
 import re
 import os
 import requests
-from serpapi import GoogleSearch
+try:
+    from serpapi import GoogleSearch
+except ImportError:
+    import sys
+    import subprocess
+    # Attempt to fix the dependency conflict
+    subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "-y", "serpapi"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "google-search-results"])
+    if 'serpapi' in sys.modules:
+        del sys.modules['serpapi']
+    from serpapi import GoogleSearch
 from dotenv import load_dotenv
 
 # load_dotenv()
